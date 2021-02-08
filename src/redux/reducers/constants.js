@@ -1,0 +1,11 @@
+export const GENRE = 'genre';
+export const GENRES = 'genres';
+export const GENRE_UPPERCASE = 'GENRE';
+export const TITLE = 'title';
+export const RELEASE_DATE = 'release_date';
+export const MOVIE_URL = 'movie_url';
+export const MOVIE_URL_UPPERCASE = 'MOVIE URL';
+export const OVERVIEW = 'overview';
+export const RUNTIME = 'runtime';
+export const POSTER_PATH = 'poster_path';
+export const MOVIE_ID_UPPERCASE = 'MOVIE ID';
