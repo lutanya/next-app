@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-export const StyledFilterButton = styled.button`
+const StyledFilterButton = styled.button`
     border: none;
     background-color: transparent;
     color: inherit;
     padding: 0;
 `;
+
+export { StyledFilterButton as default };

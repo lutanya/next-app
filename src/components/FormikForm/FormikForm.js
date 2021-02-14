@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyledButton, StyledResetButton, StyledSubmitButton } from '../Button/StyledButton.js';
+import { StyledButton, StyledResetButton, StyledSubmitButton } from '../Button/StyledButton';
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik';
-import { MovieSchema } from '../MovieShema/MovieShema.js';
-import { StyledInput } from '../Input/StyledInput.js';
-import CheckboxFormik from '../CheckboxFormik/CheckboxFormik.js';
+import MovieSchema from '../MovieShema/MovieShema';
+import StyledInput from '../Input/StyledInput';
+import CheckboxFormik from '../CheckboxFormik/CheckboxFormik';
 import PropTypes from 'prop-types';
 
 const fields = [

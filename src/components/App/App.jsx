@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from '../Header/Header';
+import Header from '../Header/Header';
 import { SearchPane } from '../SearchPane/SearchPane';
-import { Footer } from '../Footer/Footer';
+import Footer from '../Footer/Footer';
 import { ErrorBoundary } from '../Errorboundary/ErrorBoundary';
 import { StyledApp, StyledMain } from './StyledApp';
 

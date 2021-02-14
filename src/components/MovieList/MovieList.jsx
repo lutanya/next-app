@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import withRedux from 'next-redux-wrapper';
-import { MovieCard } from '../MovieCard/MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 import NoMovieFound from '../NoMovieFound/NoMovieFound';
 import { searchMovie } from '../../redux/action';
-import { initStore } from '../../redux/store/store';
+import {initStore} from '../../redux/store/store';
 
-function MovieList({
-  movies, handleSearchMovie, loading, searchQuery,
-}) {
-  if (searchQuery != undefined) {
-    useEffect(() => {
-      handleSearchMovie(searchQuery);
-    }, [handleSearchMovie, searchQuery]);
-  }
+function MovieList({movies,loading}) {
 
   if (loading) {
     return <>loading...</>;
@@ -63,8 +55,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 MovieList.getInitialProps = async function (ctx) {
-  initialize(ctx);
-
   const { loading } = ctx.store.getState();
   if (loading) {
     const response = await initStore.dispatch(searchMovie(ctx.query.searchQuery));
@@ -72,7 +62,8 @@ MovieList.getInitialProps = async function (ctx) {
     return {
       movies,
     };
-  }
+  };
+  return {}
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieList);

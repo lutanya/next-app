@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledTitle = styled.div`
+const StyledTitle = styled.div`
     font-size: 2em;
     margin: 0px;
     
@@ -14,3 +14,5 @@ export const StyledTitle = styled.div`
         padding: 15px;
     }
 `;
+
+export { StyledTitle as default };

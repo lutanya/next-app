@@ -1,7 +1,7 @@
 // import Background from '../MovieCard/image-not-found.jpg';
 import styled, { css } from 'styled-components';
 
-export const StyledImg = styled.div`
+const StyledImg = styled.div`
     ${(props) => css`
         flex-basis: 200px;
         flex-shrink: 0;
@@ -14,3 +14,5 @@ export const StyledImg = styled.div`
         background-color: #585858;
     `}
 `;
+
+export { StyledImg as default };

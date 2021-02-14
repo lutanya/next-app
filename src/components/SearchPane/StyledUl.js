@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const StyledUl = styled.ul`
+const StyledUl = styled.ul`
     list-style-type: none;
     padding: 0;
     ${(props) => props.align_right
@@ -13,3 +13,5 @@ export const StyledUl = styled.ul`
         margin-right: 30px;
     }
 `;
+
+export { StyledUl as default };

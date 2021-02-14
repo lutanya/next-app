@@ -14,6 +14,22 @@ import {
 
 const API_ROOT = 'http://localhost:4000';
 
+const fetchSuccess = (movies, searchParam, sortParam) => ({
+  type: FETCH_BY_GENRE_SUCCESS,
+  payload: movies,
+  searchParam,
+  sortParam,
+});
+
+const fetchStarted = () => ({
+  type: FETCH_BY_GENRE_STARTED,
+});
+
+const fetchFailure = (error) => ({
+  type: FETCH_BY_GENRE_FAILURE,
+  error,
+});
+
 function populateParamsToUrl(url, params) {
   if (params !== null) {
     Object.keys(params).forEach((key) => url.searchParams.append(key, params[key]));
@@ -27,7 +43,7 @@ function fetchMoviesWithParams(url, searchParam, sortParam) {
       const res = await axios.get(url.href);
       dispatch(fetchSuccess(res.data.data, searchParam, sortParam));
     } catch (err) {
-      console.log(err);
+      dispatch(fetchFailure(err));
     }
   };
 }
@@ -58,23 +74,16 @@ export const searchMovie = (searchParam) => {
   return fetchMoviesWithParams(url);
 };
 
-const fetchSuccess = (movies, searchParam, sortParam) => ({
-  type: FETCH_BY_GENRE_SUCCESS,
-  payload: movies,
-  searchParam,
-  sortParam,
-});
-
-const fetchStarted = () => ({
-  type: FETCH_BY_GENRE_STARTED,
-});
-
-const fetchFailure = (error) => ({
-  type: FETCH_BY_GENRE_FAILURE,
-  error,
-});
-
 // modal actions
+
+export const closeModal = () => ({
+  type: CLOSE_MODAL_BY_TYPE,
+});
+
+export const addMovieSuccess = () => ({
+  type: OPEN_MODAL_BY_TYPE,
+  modalType: 'addMovieSuccess',
+});
 
 export const handleAddMovie = (movie) => {
   const url = new URL('http://localhost:4000/movies');
@@ -123,10 +132,6 @@ export const openModalByType = (type, movie) => ({
   genres: movie !== undefined ? movie.genres : null,
 });
 
-export const closeModal = () => ({
-  type: CLOSE_MODAL_BY_TYPE,
-});
-
 export const handleInputChange = (value, label) => ({
   type: CHANGE_INPUT_VALUE,
   label,
@@ -145,9 +150,4 @@ export const handleChangeCheckbox = (id) => ({
 export const handleFormErrors = (errors) => ({
   type: 'HANDLE_ERRORS',
   errors,
-});
-
-export const addMovieSuccess = () => ({
-  type: OPEN_MODAL_BY_TYPE,
-  modalType: 'addMovieSuccess',
 });

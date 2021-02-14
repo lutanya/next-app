@@ -1,27 +1,27 @@
 import React from 'react';
-// import '../CheckboxSelector/CheckboxSelector.css';
+import styled from  '../CheckboxSelector/CheckboxSelector.module.css';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import { Field, FieldArray } from 'formik';
-import { useToggle } from '../useToggle/useToggle';
+import useToggle from '../useToggle/useToggle';
 
 const allGenres = ['Animation', 'Adventure', 'Family', 'Comedy', 'Romance', 'Drama', 'Fantasy'];
 
 export default function CheckboxFormik({ values }) {
   const [expanded, setExpanded] = useToggle();
 
-  const checkboxClass = classNames('checkboxes',
+  const checkboxClass = classNames(styled.checkboxes,
     {
       'checkboxes-invisible': !expanded,
     });
 
   return (
     <>
-      <div className="selectBox" onClick={() => setExpanded()}>
+      <div className={styled.selectBox} onClick={() => setExpanded()}>
         <select>
           <option>Select Genre</option>
         </select>
-        <div className="overSelect" />
+        <div className={styled.overSelect} />
       </div>
       <div className={checkboxClass}>
         <FieldArray

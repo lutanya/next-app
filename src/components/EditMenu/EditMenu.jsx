@@ -6,7 +6,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { openModalByType } from '../../redux/action/index';
-import { StyledEditMenu } from './StyledEditMenu';
+import StyledEditMenu from './StyledEditMenu';
 
 const ITEM_HEIGHT = 48;
 

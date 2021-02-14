@@ -21,24 +21,24 @@ import {
 function Input({
   label, placeholder, value, error, handleInputChange,
 }) {
-  const inputLabel = useMemo(() => (label == 'poster_path'
+  const inputLabel = useMemo(() => (label === 'poster_path'
     ? MOVIE_URL_UPPERCASE
-    : label == 'genre'
+    : label === 'genre'
       ? GENRE_UPPERCASE
-      : label == 'id'
+      : label === 'id'
         ? MOVIE_ID_UPPERCASE
         : label.replace('_', ' ').toUpperCase()), [label]);
 
   return (
     <StyledInput>
       {value || label != 'id' ? <label>{inputLabel}</label> : null}
-      {label == GENRES
+      {label === GENRES
         ? <CheckboxSelector />
         : label == 'id'
           ? <p>{value}</p>
           : (
             <input
-              type={label == RELEASE_DATE ? 'date' : label == RUNTIME ? 'number' : 'text'}
+              type={label === RELEASE_DATE ? 'date' : label === RUNTIME ? 'number' : 'text'}
               value={value}
               onChange={(event) => handleInputChange(event.target.value, label)}
               placeholder={placeholder}

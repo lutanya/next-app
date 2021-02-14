@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledNotFound = styled.div`
+const StyledNotFound = styled.div`
     margin: 50px auto;
     color: #FFFFFF;
     background-color: #232323;
@@ -17,6 +17,6 @@ export const StyledNotFound = styled.div`
         justify-content: center;
         flex-direction: column;
     }
-    
-
 `;
+
+export { StyledNotFound as default };

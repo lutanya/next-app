@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const StyledMovieDetails = styled.div`
+const StyledMovieDetails = styled.div`
     display: flex;
     flex-wrap: nowrap;
 `;
+
+export { StyledMovieDetails as default };

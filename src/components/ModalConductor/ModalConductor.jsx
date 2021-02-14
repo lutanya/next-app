@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Modal } from '../Modal/Modal';
+import Modal from '../Modal/Modal';
 import EditMenu from '../EditMenu/EditMenu';
 import DeleteMovieForm from '../DeleteMovieForm/DeleteMovieForm';
 import {
@@ -27,7 +26,7 @@ export function isFormValid(movie, handleFormErrors) {
   const errors = [];
   let formIsValid = true;
 
-  if (movie[GENRES] == null || movie[GENRES].length == 0) {
+  if (movie[GENRES] === null || movie[GENRES].length === 0) {
     formIsValid = false;
     errors[GENRES] = 'Select at least one genre to proceed';
     handleFormErrors(errors);

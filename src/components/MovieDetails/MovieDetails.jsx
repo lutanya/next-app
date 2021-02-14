@@ -4,6 +4,7 @@ import { StyledImg } from './StyledImg';
 import { StyledTimeInfo } from './StyledTimeInfo';
 import { StyledTitle } from './StyledTitle';
 import { StyledMovieDetails } from './StyledMovieDetails';
+import PropTypes from 'prop-types';
 
 export default function MovieDetails({ movie }) {
   const release = movie ? movie.release_date.split('-')[0] : null;
@@ -37,3 +38,7 @@ export default function MovieDetails({ movie }) {
       : null
   );
 }
+
+MovieList.propTypes = {
+  movie: PropTypes.array.isRequired
+};

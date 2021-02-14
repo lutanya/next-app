@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledNotFound } from './StyledNotFound';
 import notFoundImage from './NotFound.png';
-import { StyledButton } from '../Button/StyledButton.js';
+import { StyledButton } from '../Button/StyledButton';
 import { Footer } from '../Footer/Footer';
 import { Logo } from '../Logo/Logo';
 

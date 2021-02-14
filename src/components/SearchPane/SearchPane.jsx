@@ -1,8 +1,8 @@
 import React from 'react';
 import BindDropDown from '../BindDropDown/BindDropDown';
 import FilterButton from '../FilterButton/FilterButton';
-import { StyledUl } from './StyledUl';
-import { StyledLabel } from './StyledLabel';
+import StyledUl from './StyledUl';
+import StyledLabel from './StyledLabel';
 
 const values = [
   { name: 'RELEASE DATE', id: 0 },

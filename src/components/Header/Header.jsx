@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Logo } from '../Logo/Logo';
-import { StyledHeader } from './StyledHeader.js';
+import Logo from '../Logo/Logo';
+import { StyledHeader } from './StyledHeader';
 
-export const Header = ({ className, component }) => (
+const Header = ({ className, component }) => (
   <StyledHeader className={className}>
     <Logo />
     {component}
@@ -19,4 +19,7 @@ export const Header = ({ className, component }) => (
 
 Header.propTypes = {
   className: PropTypes.string,
+  component: PropTypes.element.isRequired,
 };
+
+export {Header as default}

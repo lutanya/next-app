@@ -1,7 +1,7 @@
 // import Background from './image-not-found.jpg';
 import styled, { css } from 'styled-components';
 
-export const StyledImg = styled.div`
+const StyledImg = styled.div`
     ${(props) => css`
         float: left;
         width: 330px;
@@ -13,3 +13,5 @@ export const StyledImg = styled.div`
         background-color: #585858;
     `}
 `;
+
+export { StyledImg as default };

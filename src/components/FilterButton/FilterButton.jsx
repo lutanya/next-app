@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Router from 'next/router';
-import { StyledFilterButton } from './StyledFilterButton';
+import StyledFilterButton from './StyledFilterButton';
 import { fetchMovies } from '../../redux/action';
 
 /**
@@ -25,6 +25,7 @@ function FilterButton({ genre, fetchByGenreProp, sortParam }) {
 FilterButton.propTypes = {
   genre: PropTypes.string.isRequired,
   fetchByGenreProp: PropTypes.func.isRequired,
+  sortParam: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({

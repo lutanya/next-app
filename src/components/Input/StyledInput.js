@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledInput = styled.div`
+const StyledInput = styled.div`
 margin-bottom: 30px; 
     > input {
         width: 480px;
@@ -24,3 +24,5 @@ margin-bottom: 30px;
         color: #F65261;
     }
 `;
+
+export { StyledInput as default };

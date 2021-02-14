@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Logo } from '../Logo/Logo';
-// import './footer.css';
+import Logo from '../Logo/Logo';
 
 /**
  * @return {Element} footer of the app
  */
-export function Footer({ className }) {
+export default function Footer({ className }) {
   return (
     <footer className={className}>
       <Logo />

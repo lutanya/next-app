@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import LongMenu from '../EditMenu/EditMenu.js';
-import { StyledMovieCard, StyledDescription } from './StyledMovieCard.js';
-import { StyledImg } from './StyledImg.js';
+import LongMenu from '../EditMenu/EditMenu';
+import { StyledMovieCard, StyledDescription } from './StyledMovieCard';
+import StyledImg from './StyledImg';
 
-export function MovieCard({ movie }) {
-  const genres = useMemo(() => (movie.genres.length == 2
+export default function MovieCard({ movie }) {
+  const genres = useMemo(() => (movie.genres.length === 2
     ? movie.genres.join('&')
     : movie.genres.join(', ')),
   [movie.genres]);

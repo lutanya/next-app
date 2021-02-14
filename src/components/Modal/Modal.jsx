@@ -2,8 +2,9 @@ import React from 'react';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ClientOnlyPortal from '../ClientOnlyPortal/ClientOnlyPortal';
 import styles from './Modal.module.css';
+import PropTypes from 'prop-types';
 
-export const Modal = ({
+const Modal = ({
   children, onClose, open, title, tick,
 }) => (open
   ? (
@@ -31,3 +32,13 @@ export const Modal = ({
     </ClientOnlyPortal>
   )
   : null);
+
+  Modal.propTypes = {
+    children: PropTypes.object.isRequired,
+    onClose: PropTypes.func.isRequired,
+    open: PropTypes.bool.isRequired,
+    title: PropTypes.string.isRequired,
+    tick: PropTypes.bool
+  };
+
+  export {Modal as default}

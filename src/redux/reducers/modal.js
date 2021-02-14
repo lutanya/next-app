@@ -41,7 +41,7 @@ const initialState = {
 export default function modal(state = initialState, action) {
   switch (action.type) {
     case OPEN_MODAL_BY_TYPE:
-      const movie = action?.movie == null ? state.movie : action.movie;
+      const movie = action.movie == null ? state.movie : action.movie;
       const values = action.genres == null ? state.values
         : state.values.map((v) => ({ ...v, isChecked: action.genres.includes(v.value) }));
       return {

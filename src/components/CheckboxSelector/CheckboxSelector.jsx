@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
-import { useToggle } from '../useToggle/useToggle';
+import useToggle from '../useToggle/useToggle';
 import { handleChangeCheckbox } from '../../redux/action';
 import CheckboxInput from '../CheckboxInput/CheckboxInput';
 import styles from './CheckboxSelector.module.css';
