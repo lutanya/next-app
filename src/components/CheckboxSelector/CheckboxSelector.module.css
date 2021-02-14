@@ -1,0 +1,39 @@
+.selectBox {
+    position: relative;
+    width: 480px;
+    padding: 16px 20px;   
+    border: none;
+    border-radius: 4px;
+    background-color: #424242;    
+    font-size: 16px; 
+    margin-top: 10px;  
+}
+  
+.selectBox select {
+    width: 100%;
+    background:  #424242;
+    border: none;
+    color: #686c71;
+    font-size: inherit;
+}
+
+.checkboxes_invisible {
+    display: none;
+}
+  
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+  
+.checkboxes {   
+    border: none;
+    font-size: 16px;
+}
+
+li {
+    list-style-type: none;
+}

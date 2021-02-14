@@ -1,10 +1,10 @@
-import React, {useMemo, useState} from 'react';
-import {connect} from 'react-redux';
-import {fetchMovies} from '../../redux/action';
+import React, { useMemo, useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {useHistory} from 'react-router';
+import { useHistory } from 'react-router';
+import { fetchMovies } from '../../redux/action';
 
-function BindDropDown({values, fetchMovies, searchParam}) {
+function BindDropDown({ values, fetchMovies, searchParam }) {
   const [value, setValue] = useState('0');
   const history = useHistory();
   function handleChange(event) {

@@ -9,16 +9,8 @@ export default function Search(){
     const headerComponent = <HeaderOption />
     return <App component={headerComponent} searchQuery={router.query.searchQuery}/>
   }
-  
-
 
   export async function getServerSideProps(ctx) {
-   console.log(ctx.query.searchQuery)
-     // here I add some data to the store
-     await initStore.dispatch(searchMovie(ctx.query.searchQuery));
-     if(initStore.getState().filter.loading){
-
-        console.log("mpvies",initStore.getState().filter.movies)
-     }
-     return {props:{}}
-  }
+   await initStore.dispatch(searchMovie(ctx.query.searchQuery));
+   return {props:{}}
+}

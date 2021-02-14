@@ -1,10 +1,9 @@
 import React from 'react';
-import {StyledButton, StyledResetButton, StyledSubmitButton} from '../Button/StyledButton.js';
-import Input from '../Input/Input';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {handleFormErrors} from '../../redux/action';
-
+import { connect } from 'react-redux';
+import { StyledButton, StyledResetButton, StyledSubmitButton } from '../Button/StyledButton.js';
+import Input from '../Input/Input';
+import { handleFormErrors } from '../../redux/action';
 
 export function formInputs(movie, placeholder, errors) {
   return Object.entries(movie).map((entity, i) => (
@@ -15,8 +14,7 @@ export function formInputs(movie, placeholder, errors) {
       placeholder={placeholder[i]}
       error={errors[entity[0]]}
     />
-  ),
-  );
+  ));
 }
 
 /**
@@ -27,15 +25,15 @@ export function formInputs(movie, placeholder, errors) {
  */
 
 function AddMovieForm(
-    {
-      movie,
-      placeholder,
-      errors,
-      submitLable,
-      handleFormReset,
-      handleFormSubmit,
-      handleFormErrors,
-    },
+  {
+    movie,
+    placeholder,
+    errors,
+    submitLable,
+    handleFormReset,
+    handleFormSubmit,
+    handleFormErrors,
+  },
 ) {
   return (
     <>

@@ -6,5 +6,3 @@ export const StyledFilterButton = styled.button`
     color: inherit;
     padding: 0;
 `;
-
-

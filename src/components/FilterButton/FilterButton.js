@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {StyledFilterButton} from './StyledFilterButton';
-import {connect} from 'react-redux';
-import {fetchMovies} from '../../redux/action';
-import Router  from 'next/router';
+import { connect } from 'react-redux';
+import Router from 'next/router';
+import { StyledFilterButton } from './StyledFilterButton';
+import { fetchMovies } from '../../redux/action';
 
 /**
  * @param {string} genre search param
  * @param {Function} fetchByGenreProp search function
  * @return {Element} search burron on the search pane
  */
-function FilterButton({genre, fetchByGenreProp, sortParam}) {
+function FilterButton({ genre, fetchByGenreProp, sortParam }) {
   const fetchMovie = () => {
     Router.push('/');
     fetchByGenreProp(genre, sortParam);

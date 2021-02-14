@@ -10,9 +10,9 @@ import {
   CHANGE_CHECKBOX_VALUES,
 } from './types';
 
-//filter actions
+// filter actions
 
-const API_ROOT="http://localhost:4000";
+const API_ROOT = 'http://localhost:4000';
 
 function populateParamsToUrl(url, params) {
   if (params !== null) {
@@ -21,50 +21,48 @@ function populateParamsToUrl(url, params) {
 }
 
 function fetchMoviesWithParams(url, searchParam, sortParam) {
-  console.log("in");
-  return dispatch => {
-    axios
-      .get(url.href)
-      .then((res) => {
-        console.log("succes");
-        dispatch(fetchSuccess(res.data.data, searchParam, sortParam));
-      }).catch((err)=>console.log(err))
+  return async (dispatch) => {
+    dispatch(fetchStarted());
+    try {
+      const res = await axios.get(url.href);
+      dispatch(fetchSuccess(res.data.data, searchParam, sortParam));
+    } catch (err) {
+      console.log(err);
+    }
   };
 }
 
 export const fetchMovies = (searchParam, sortParam) => {
   let search = null;
   let sort = null;
-  if (searchParam !== null && sortParam !==undefined && searchParam !== 'ALL' ) {
+  if (searchParam !== null && sortParam !== undefined && searchParam !== 'ALL') {
     search = {
       searchBy: 'genres',
-      search: searchParam.toLowerCase()
-    }
-  };
-  if (sortParam !== null && sortParam!==undefined) {
+      search: searchParam.toLowerCase(),
+    };
+  }
+  if (sortParam !== null && sortParam !== undefined) {
     sort = {
       sortBy: sortParam.toLowerCase().replace(' ', '_'),
-      sortOrder: 'desc'
-    }
-  };
+      sortOrder: 'desc',
+    };
+  }
   const url = new URL(`${API_ROOT}/movies`);
   populateParamsToUrl(url, search);
   populateParamsToUrl(url, sort);
-  return fetchMoviesWithParams(url, searchParam, sortParam)
+  return fetchMoviesWithParams(url, searchParam, sortParam);
 };
 
 export const searchMovie = (searchParam) => {
-  console.log("searchParam",searchParam);
   const url = new URL(`${API_ROOT}/movies/?search=${searchParam}&searchBy=title`);
-  console.log("url",url);
-  return fetchMoviesWithParams(url)
+  return fetchMoviesWithParams(url);
 };
 
 const fetchSuccess = (movies, searchParam, sortParam) => ({
   type: FETCH_BY_GENRE_SUCCESS,
   payload: movies,
   searchParam,
-  sortParam
+  sortParam,
 });
 
 const fetchStarted = () => ({
@@ -76,7 +74,7 @@ const fetchFailure = (error) => ({
   error,
 });
 
-//modal actions
+// modal actions
 
 export const handleAddMovie = (movie) => {
   const url = new URL('http://localhost:4000/movies');
@@ -108,13 +106,11 @@ export const handleDeleteMovie = (movie) => {
   };
 };
 
-
-
 export const openModalByType = (type, movie) => ({
   type: OPEN_MODAL_BY_TYPE,
   modalType: type,
-  movie: movie !== undefined ?
-    {
+  movie: movie !== undefined
+    ? {
       id: movie.id,
       title: movie.title,
       release_date: movie.release_date,
@@ -122,8 +118,8 @@ export const openModalByType = (type, movie) => ({
       genres: movie.genres,
       overview: movie.overview,
       runtime: Number(movie.runtime),
-    } :
-    null,
+    }
+    : null,
   genres: movie !== undefined ? movie.genres : null,
 });
 
@@ -133,8 +129,8 @@ export const closeModal = () => ({
 
 export const handleInputChange = (value, label) => ({
   type: CHANGE_INPUT_VALUE,
-  label: label,
-  value: value,
+  label,
+  value,
 });
 
 export const handleFormReset = () => ({
@@ -143,18 +139,15 @@ export const handleFormReset = () => ({
 
 export const handleChangeCheckbox = (id) => ({
   type: CHANGE_CHECKBOX_VALUES,
-  id: id,
+  id,
 });
 
-export const handleFormErrors = (errors) =>
-({
+export const handleFormErrors = (errors) => ({
   type: 'HANDLE_ERRORS',
-  errors: errors,
+  errors,
 });
 
 export const addMovieSuccess = () => ({
   type: OPEN_MODAL_BY_TYPE,
   modalType: 'addMovieSuccess',
 });
-
-

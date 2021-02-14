@@ -1,33 +1,35 @@
 import React from 'react';
-import {useToggle} from '../useToggle/useToggle';
-import {handleChangeCheckbox} from '../../redux/action';
-import {connect} from 'react-redux';
-import CheckboxInput from '../CheckboxInput/CheckboxInput';
+import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
+import { useToggle } from '../useToggle/useToggle';
+import { handleChangeCheckbox } from '../../redux/action';
+import CheckboxInput from '../CheckboxInput/CheckboxInput';
+import styles from './CheckboxSelector.module.css';
 
-function CheckboxSelector({values, handleChangeCheckbox}) {
+function CheckboxSelector({ values, handleChangeCheckbox }) {
   const [expanded, setExpanded] = useToggle();
 
   function optionTemplate(values) {
     return values.map((v) => (
       <li key={v.id}>
-        <CheckboxInput value={v} handleChangeCheckbox={handleChangeCheckbox} />{v.value}
+        <CheckboxInput value={v} handleChangeCheckbox={handleChangeCheckbox} />
+        {v.value}
       </li>
     ));
   }
-  const checkboxClass = classNames('checkboxes',
-      {
-        'checkboxes-invisible': !expanded,
-      });
+  const checkboxClass = classNames(styles.checkboxes,
+    {
+      checkboxes_invisible: !expanded,
+    });
 
   return (
     <>
-      <div className='selectBox' onClick={() => setExpanded()}>
+      <div className={styles.selectBox} onClick={() => setExpanded()}>
         <select>
           <option>Select Genre</option>
         </select>
-        <div className='overSelect'></div>
+        <div className={styles.overSelect} />
       </div>
       <div className={checkboxClass}>
         <ul>
@@ -44,8 +46,7 @@ const mapStateToProps = (state) => ({
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleChangeCheckbox: (id) =>
-      dispatch(handleChangeCheckbox(id)),
+    handleChangeCheckbox: (id) => dispatch(handleChangeCheckbox(id)),
   };
 }
 

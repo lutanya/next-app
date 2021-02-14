@@ -1,7 +1,7 @@
 import React from 'react';
-import { Logo } from '../Logo/Logo';
-//import './footer.css';
 import PropTypes from 'prop-types';
+import { Logo } from '../Logo/Logo';
+// import './footer.css';
 
 /**
  * @return {Element} footer of the app
@@ -10,7 +10,8 @@ export function Footer({ className }) {
   return (
     <footer className={className}>
       <Logo />
-      <style jsx>{`
+      <style jsx>
+        {`
         footer{
           font-size: 130%;
           background: #424242;
@@ -20,8 +21,7 @@ export function Footer({ className }) {
           float: left;
           margin-bottom: 65px;
           padding: 2.5% 0;        
-        }`
-      }
+        }`}
       </style>
     </footer>
   );
@@ -30,5 +30,3 @@ export function Footer({ className }) {
 Footer.propTypes = {
   className: PropTypes.string,
 };
-
-

@@ -1,9 +1,8 @@
-//import Background from '../MovieCard/image-not-found.jpg';
-import styled, {css} from 'styled-components';
+// import Background from '../MovieCard/image-not-found.jpg';
+import styled, { css } from 'styled-components';
 
 export const StyledImg = styled.div`
-    ${(props) =>
-    css`
+    ${(props) => css`
         flex-basis: 200px;
         flex-shrink: 0;
         height: 300px;

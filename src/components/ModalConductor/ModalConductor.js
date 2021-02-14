@@ -1,7 +1,9 @@
 import React from 'react';
-//import './ModalConductor.css';
+
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Modal } from '../Modal/Modal';
 import EditMenu from '../EditMenu/EditMenu';
-import {connect} from 'react-redux';
 import DeleteMovieForm from '../DeleteMovieForm/DeleteMovieForm';
 import {
   closeModal,
@@ -17,11 +19,9 @@ import {
   SAVE, DELETE,
   ADD_SUCCESS_MODUL,
 } from '../../util/constants';
-import PropTypes from 'prop-types';
 
-import {GENRES} from '../../redux/reducers/constants';
+import { GENRES } from '../../redux/reducers/constants';
 import FormikForm from '../FormikForm/FormikForm';
-
 
 export function isFormValid(movie, handleFormErrors) {
   const errors = [];
@@ -37,20 +37,20 @@ export function isFormValid(movie, handleFormErrors) {
 }
 
 const ModalConductor = (
-    {
-      currentModal,
-      show,
-      movie,
-      handleCloseModal,
-      handleAddMovie,
-      handleEditMovie,
-      handleDeleteMovie,
-    },
+  {
+    currentModal,
+    show,
+    movie,
+    handleCloseModal,
+    handleAddMovie,
+    handleEditMovie,
+    handleDeleteMovie,
+  },
 ) => {
   switch (currentModal) {
     case ADD:
       return (
-        <Modal open={show} onClose={handleCloseModal} title='ADD MOVIE'>
+        <Modal open={show} onClose={handleCloseModal} title="ADD MOVIE">
           <FormikForm
             submitLable={SUBMIT}
             handleFormSubmit={handleAddMovie}
@@ -61,7 +61,7 @@ const ModalConductor = (
       return <EditMenu />;
     case EDIT:
       return (
-        <Modal open={show} onClose={handleCloseModal} title='EDIT MOVIE'>
+        <Modal open={show} onClose={handleCloseModal} title="EDIT MOVIE">
           <FormikForm
             movie={movie}
             submitLable={SAVE}
@@ -71,14 +71,18 @@ const ModalConductor = (
       );
     case DELETE:
       return (
-        <Modal open={show} onClose={handleCloseModal} title='DELETE MOVIE'>
+        <Modal open={show} onClose={handleCloseModal} title="DELETE MOVIE">
           <DeleteMovieForm movie={movie} handleDeleteMovie={handleDeleteMovie} />
         </Modal>
       );
     case ADD_SUCCESS_MODUL:
       return (
-        <Modal open={show} onClose={handleCloseModal} title='CONGRATULATIONS !' tick>
-          <center>The movie has been added to <br />database successfully</center>
+        <Modal open={show} onClose={handleCloseModal} title="CONGRATULATIONS !" tick>
+          <center>
+            The movie has been added to
+            <br />
+            database successfully
+          </center>
         </Modal>
       );
     default:
@@ -117,5 +121,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalConductor);
-
-

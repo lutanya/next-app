@@ -1,0 +1,28 @@
+
+.modal_content {
+  width: 530px;
+  background-color: #232323;
+  color: #FFFFFF;
+  text-align: left;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  padding: 70px 90px 170px 90px;
+  z-index: 2;
+}
+
+.modal_content h1 {
+  font-weight: normal;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  top: 15px;
+  color: #FFFFFF;
+  background-color: #232323;
+  border: none;
+  padding: 0px;
+  font-size: 32px;
+}

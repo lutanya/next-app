@@ -8,10 +8,10 @@ export const initialState = {
   movies: [],
   error: null,
   loading: false,
-  params:{
+  params: {
     search: null,
-    sort: 'REALEASE DATE'
-  }
+    sort: 'REALEASE DATE',
+  },
 };
 
 /**
@@ -35,7 +35,7 @@ export default function filter(state = initialState, action) {
         params: {
           search: action.searchParam,
           sort: action.sortParam,
-        }
+        },
       };
     case FETCH_BY_GENRE_FAILURE:
       return {
@@ -45,5 +45,4 @@ export default function filter(state = initialState, action) {
       };
     default: return state;
   }
-};
-
+}

@@ -1,8 +1,8 @@
-import React, {useMemo} from 'react';
-import {StyledInput} from './StyledInput';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {handleInputChange} from '../../redux/action';
+import { connect } from 'react-redux';
+import { StyledInput } from './StyledInput';
+import { handleInputChange } from '../../redux/action';
 import CheckboxSelector from '../CheckboxSelector/CheckboxSelector';
 
 import {
@@ -18,30 +18,32 @@ import {
  * @param {string} label label on input
  * @return {Element} inputs in the edit form
  */
-function Input({label, placeholder, value, error, handleInputChange}) {
-  const inputLabel = useMemo(() =>
-    label == 'poster_path' ?
-      MOVIE_URL_UPPERCASE :
-      label == 'genre' ?
-        GENRE_UPPERCASE :
-        label == 'id' ?
-          MOVIE_ID_UPPERCASE :
-          label.replace('_', ' ').toUpperCase(), [label]);
+function Input({
+  label, placeholder, value, error, handleInputChange,
+}) {
+  const inputLabel = useMemo(() => (label == 'poster_path'
+    ? MOVIE_URL_UPPERCASE
+    : label == 'genre'
+      ? GENRE_UPPERCASE
+      : label == 'id'
+        ? MOVIE_ID_UPPERCASE
+        : label.replace('_', ' ').toUpperCase()), [label]);
 
   return (
     <StyledInput>
       {value || label != 'id' ? <label>{inputLabel}</label> : null}
-      {label == GENRES ?
-        <CheckboxSelector /> :
-        label == 'id' ?
-          <p>{value}</p> :
-          <input
-            type={label == RELEASE_DATE ? 'date' : label == RUNTIME ? 'number' : 'text'}
-            value={value}
-            onChange={(event) => handleInputChange(event.target.value, label)}
-            placeholder={placeholder}
-          />
-      }
+      {label == GENRES
+        ? <CheckboxSelector />
+        : label == 'id'
+          ? <p>{value}</p>
+          : (
+            <input
+              type={label == RELEASE_DATE ? 'date' : label == RUNTIME ? 'number' : 'text'}
+              value={value}
+              onChange={(event) => handleInputChange(event.target.value, label)}
+              placeholder={placeholder}
+            />
+          )}
       <span>{error}</span>
     </StyledInput>
   );
@@ -65,4 +67,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(null, mapDispatchToProps)(Input);
-

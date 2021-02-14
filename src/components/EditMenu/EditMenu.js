@@ -3,14 +3,14 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {connect} from 'react-redux';
-import {openModalByType} from '../../redux/action/index';
-import {StyledEditMenu} from './StyledEditMenu';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { openModalByType } from '../../redux/action/index';
+import { StyledEditMenu } from './StyledEditMenu';
 
 const ITEM_HEIGHT = 48;
 
-function LongMenu({handleOpenModal, movie}) {
+function LongMenu({ handleOpenModal, movie }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -71,6 +71,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
 export default connect(null, mapDispatchToProps)(LongMenu);
-

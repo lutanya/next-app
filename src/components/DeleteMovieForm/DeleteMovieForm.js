@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyledSubmitButton, StyledButton} from '../Button/StyledButton.js';
 import PropTypes from 'prop-types';
+import { StyledSubmitButton, StyledButton } from '../Button/StyledButton.js';
 
 /**
  * @return {Element} returns button with modal window
@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  * @param {string} title title of the modal window
  */
 
-export default function DeleteMovieForm({movie, handleDeleteMovie}) {
+export default function DeleteMovieForm({ movie, handleDeleteMovie }) {
   return (
     <form>
       Are you sure you want to delete this movie?

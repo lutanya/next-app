@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledButton = styled('button')`
     background: #555555;
@@ -7,8 +7,8 @@ export const StyledButton = styled('button')`
     color: #F65261;
     padding: 0.5em 1em;
     font-size: inherit;
-    ${(props) => props.colored &&
-    css`
+    ${(props) => props.colored
+    && css`
         background: #F65261;
         color: #FFFFFF;
         padding: 0.8em 0;
@@ -16,8 +16,8 @@ export const StyledButton = styled('button')`
         border: solid 2px #F65261; 
     `}
     ${(props) => props.position}
-    ${(props) => props.empty &&
-    css`
+    ${(props) => props.empty
+    && css`
         background: #232323;
         border: solid 2px #F65261;
         color: #F65261;  
