@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { StyledImg } from './StyledImg';
-import { StyledTimeInfo } from './StyledTimeInfo';
-import { StyledTitle } from './StyledTitle';
-import { StyledMovieDetails } from './StyledMovieDetails';
+import StyledImg from './StyledImg';
+import StyledTimeInfo from './StyledTimeInfo';
+import StyledTitle from './StyledTitle';
+import StyledMovieDetails from './StyledMovieDetails';
 import PropTypes from 'prop-types';
 
 export default function MovieDetails({ movie }) {
@@ -26,6 +26,7 @@ export default function MovieDetails({ movie }) {
               {movie.tagline}
               <StyledTimeInfo>
                 {release}
+                {' '}
                 {movie.runtime}
                 {' '}
                 min
@@ -39,6 +40,6 @@ export default function MovieDetails({ movie }) {
   );
 }
 
-MovieList.propTypes = {
+MovieDetails.propTypes = {
   movie: PropTypes.array.isRequired
 };

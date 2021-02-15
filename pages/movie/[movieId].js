@@ -9,12 +9,6 @@ export default function MoviePage({ movie }) {
     return <App component={movieComponent} />
 };
 
-// MoviePage.getInitialProps = async (ctx) => {
-//     const responce = await axios.get(`http://localhost:4000/movies/${ctx.query.movieId}`)
-//     const movie = await responce.data
-//     return { movie }
-// }
-
 export async function getServerSideProps(ctx)  {
     const responce = await axios.get(`http://localhost:4000/movies/${ctx.query.movieId}`)
     const movie = await responce.data
