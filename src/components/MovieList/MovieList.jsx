@@ -6,11 +6,8 @@ import NoMovieFound from '../NoMovieFound/NoMovieFound';
 import { searchMovie } from '../../redux/action';
 import {initStore} from '../../redux/store/store';
 
-function MovieList({movies,loading}) {
-
-  if (loading) {
-    return <>loading...</>;
-  }
+function MovieList({movies,searchQuery,handleSearchMovie}) {
+  handleSearchMovie(searchQuery)
 
   return (
     <>
