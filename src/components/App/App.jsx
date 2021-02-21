@@ -15,7 +15,7 @@ export default function App({ component, searchQuery }) {
       <ErrorBoundary>
         <StyledMain>
           <SearchPane />
-          <MovieList searchQuery={searchQuery} />
+          <MovieList />
         </StyledMain>
       </ErrorBoundary>
       <Footer className="footer" />
